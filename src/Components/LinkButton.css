@@ -1,0 +1,18 @@
+.link-button {
+    background: none;
+    border: none;
+    padding: 0;
+    font: inherit;
+    cursor: pointer;
+    text-decoration: underline;
+    color: #747264;
+  }
+
+  .link-button:hover {
+    text-decoration: underline;
+    color: #3C3633; /* Change color on hover */
+  }
+  
+  .link-button:active {
+    color: #E0CCBE; /* Change color on click */
+  }

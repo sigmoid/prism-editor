@@ -1,22 +1,28 @@
 import logo from './logo.svg';
 import './App.css';
+import { useState } from 'react';
+import DialogueEditor from './Components/DialogueEditor';
+import MapEditor from './Components/MapEditor';
 
-function App() {
+const App = () =>
+{
+  const [currentView, setCurrentView] = useState();
+
+  const renderCurrentView = () => {
+    if (currentView === "dialogue")
+      return <DialogueEditor></DialogueEditor>
+    if (currentView === "map")
+      return <MapEditor></MapEditor>
+  }
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <header>
+          <button className="btn btn-primary m-2" onClick={() => setCurrentView('map')}>Map Editor</button>
+          <button className="btn btn-primary m-2" onClick={() => setCurrentView('dialogue')}>Dialogue Editor</button>
+          <hr/>
+        </header>
+        {renderCurrentView()}
       </header>
     </div>
   );
